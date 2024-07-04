@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>へいわのたね</title>
+   
+    <!-- グーグルフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=RocknRoll+One&family=Slackside+One&family=Train+One&family=Tsukimi+Rounded&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><h1 class="style-h1">へいわのたね</h1></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="stories.html">ストーリー</a></li>
+                    <li><a href="tool.html">サポートツール</a></li>
+                    <li><a href="blog.html">ブログ</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="forum" class="forum content-section">
+        <div class="hero-background"></div>
+        <div class="container">
+            <h3>コミュニティ</h3>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="検索...">
+            </div>
+            <div class="thread-list">
+                <div class="thread-card">
+                    <h4>平和活動の参加方法について</h4>
+                    <p>平和活動に参加するための具体的な方法やリソースについて議論しましょう。</p>
+                    <div class="thread-meta">作成者: ユーザー1 | 投稿日: 2024-05-20 | 最新返信: 2024-05-21</div>
+                </div>
+                <div class="thread-card">
+                    <h4>自己実現のためのステップ</h4>
+                    <p>自己実現に向けた具体的なステップや成功事例を共有しましょう。</p>
+                    <div class="thread-meta">作成者: ユーザー2 | 投稿日: 2024-05-19 | 最新返信: 2024-05-20</div>
+                </div>
+                <!-- 追加のスレッドカード -->
+            </div>
+            <div class="new-thread-button">
+                <button id="new-thread-btn">新規スレッドを作成</button>
+            </div>
+        </div>
+    </section>
+    <section id="new-thread-section" style="display: none;">
+        <div class="container">
+            <h3>新規スレッド</h3>
+            <form id="new-thread-form">
+                <label for="thread-title">タイトル:</label>
+                <input type="text" id="thread-title" name="title" required>
+                <label for="thread-content">内容:</label>
+                <textarea id="thread-content" name="content" required></textarea>
+                <button type="submit">投稿</button>
+            </form>
+        </div>
+    </section>
+    
+
+    <footer>
+        <div class="container">
+            <small>&copy; 2024 へいわのたね All rights reserved.</small>
+        </div>
+    </footer>
+
+    <a href="#top" class="top-link" id="page-top">page<br>top</a>
+</body>
+</html>

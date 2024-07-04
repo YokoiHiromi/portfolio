@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>へいわのたね</title>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=RocknRoll+One&family=Slackside+One&family=Train+One&family=Tsukimi+Rounded&display=swap" rel="stylesheet">
+    
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><h1 class="style-h1">へいわのたね</h1></a>
+            <nav>
+                <ul>
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="stories.html">ストーリー</a></li>
+                        <li><a href="tool.html">サポートツール</a></li>
+                        <li><a href="blog.html">ブログ</a></li>
+                        <li><a href="comu.html">コミュニティ</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container content-section">
+        <div class="hero-background"></div>
+        <h3>ボランティアになる</h3>
+        <p>私たちの活動に参加するボランティアを募集しています。様々なイベントやプロジェクトに参加して、平和と自己実現のための活動を支援してください。</p>
+        <form action="submit_volunteer.php" method="post">
+            <label for="name">お名前:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">メールアドレス:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">メッセージ:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit" class="btn">応募する</button>
+        </form>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <small>&copy; 2024 へいわのたね All rights reserved.</small>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,906 @@
+@charset "utf-8";
+
+/* イントロの動画 ---------------------------------------- */
+#intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.intro-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width:200px; /* 小さく表示 */
+    height: auto;
+    z-index: 1001;
+}
+
+#intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+@keyframes intenseBoundAndQuickFadeOut {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    20% {
+        transform: translateY(calc(100vh - 100px)); /* 画面の下の方まで */
+        opacity: 1;
+    }
+    30% {
+        transform: translateY(calc(100vh - 50px)); /* さらに下でバウンド */
+        opacity: 1;
+    }
+    40% {
+        transform: translateY(calc(100vh - 80px)); /* 元の位置にバウンド */
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(calc(100vh - 60px)); /* 再度下でバウンド */
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(calc(100vh - 75px)); /* 元の位置にバウンド */
+        opacity: 1;
+    }
+    70% {
+        transform: translateY(calc(100vh - 65px)); /* 再度バウンド */
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(calc(100vh - 70px)); /* 元の位置にバウンド */
+        opacity: 1;
+    }
+    90% {
+        transform: translateY(calc(100vh - 68px)); /* 最後に軽くバウンド */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh - 50px)); /* 完全に下 */
+        opacity: 0; /* 透明 */
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#intro.drop {
+    animation: intenseBoundAndQuickFadeOut 1.5s forwards, fadeOut 1s 1.5s forwards; /* 1.5秒でバウンド、その後1秒でフェードアウト */
+    margin: 50px auto;
+}
+
+/* ヘッダーのフェードインアニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        top: -100px; /* 初期位置 */
+    }
+    to {
+        opacity: 1;
+        top: 0; /* 最終位置 */
+    }
+}
+
+/* イントロ画面用のスタイル */
+header.intro-active {
+    background-color: transparent; /* 背景を無色透明に設定 */
+}
+
+header.intro-active nav,
+header.intro-active .logo {
+    display: none; /* ナビゲーションとロゴを非表示 */
+}
+
+header.fade-in {
+    background-color: #2F4F4F; /* フェードイン時の背景色 */
+    opacity: 1; /* フェードイン時の不透明度 */
+    top: 0; /* 最終位置 */
+    animation: fadeIn 1.5s ease-in-out forwards; /* 1.5秒でアニメーション */
+}
+
+.logo {
+    max-width: 200px;
+    text-align: left;
+    margin-left: 1rem;
+} 
+
+/* hero-section --------------------------------- */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1440px; /* 必要に応じてサイズを調整 */
+    overflow: hidden;
+}
+
+    .hero-video { 
+        display: block !important; 
+        width: 100%;
+        height: auto;
+    }
+    .sp-hero-video { 
+        display: none !important; 
+        width: 100%;
+        height: auto;
+    }
+
+/* history-section ---------------------------------------- */
+
+/* アニメーションの設定 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* #aboutセクションに適用 */
+#about {
+    opacity: 0; /* 初期状態では透明に */
+    transform: translateY(20px); /* 初期状態で下にずらす */
+    transition: opacity 3.5s ease-in, transform 6.5s ease-in;
+}
+
+.history {
+    width: 100%;
+    padding: 20px 0;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.title-img {
+    width: 100%; /* 親要素の幅に合わせる */
+    height: auto; /* 高さは自動調整 */
+    margin-left: 0; /* 左端のマージンをゼロに */
+    padding-left: 0; /* 左端のパディングをゼロに */
+    text-align: left; /* テキストを左揃え */
+}
+
+.title-img img {
+    width: 100%; /* 100%幅に設定 */
+    height: auto; /* 高さは自動調整 */
+}
+
+.history-outer-container {
+    width: 100%;
+}
+
+.catch {
+    font-size: 1.8rem;
+    padding:4rem 0;
+    text-align: center; /* 水平方向の中央揃え */
+    /* margin: 0 auto; ブロック要素の水平中央配置 */
+    /* display: block; 必要に応じてブロック表示 */
+    width: 100%; /* 必要に応じて幅を調整 */
+}
+
+.catch p{
+    font-family: "Shippori Mincho", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.sp_br {
+    display: none; /* 768px以上では改行タグを無効に */
+  }
+
+
+.history-outer {
+    display: flex;
+    height: auto;
+}
+
+.history-text {
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 0 8rem;
+    line-height: 1.8;
+    overflow: hidden;
+}
+
+.history-en p {
+    font-family: "Arapey", serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+    font-size: 1.6rem;
+    margin: 2rem 7rem 0 0;
+    line-height: 1.5;
+
+}
+
+.history-img {
+    float: right;
+    margin: 0 0 10px 10px;
+    width: 170%; /* 画像の幅を必要に応じて調整 */
+    text-align: right;
+}
+
+.history-text p {
+    overflow: hidden; /* フロートによる高さ崩れを防ぐ */
+}
+
+/* review-section ------------------------------------------ */
+#review {
+    max-width: 1440px;
+    margin: 80px auto;
+    display: flex;
+    flex-direction: column; /* 追加: 縦方向の配置に変更 */
+    justify-content: center; /* 追加: 中央揃え */
+    align-items: center; /* 追加: 垂直方向の中央揃え */
+}
+
+.review-outer-container {
+    display: flex;
+    flex-direction: column; /* 縦方向の配置 */
+    align-items: center; /* 水平方向の中央揃え */
+}
+
+.review-outer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 中央揃え */
+}
+
+.review-img-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 自動調整 */
+    gap: 10px; /* 画像間のスペースを調整 */
+    justify-content: center; /* コンテナ内のコンテンツを中央揃え */
+    width: 100%; /* 追加: コンテナの幅を100%に */
+}
+
+.swiper.review-swiper-container {
+    display: none;
+}
+
+.review-img {
+    position: relative; /* 相対位置を設定 */
+    display: flex;
+    justify-content: center; /* 追加: 水平方向の中央揃え */
+    align-items: center;
+    width: 100%;
+    height: auto; /* 高さを自動調整 */
+}
+
+.review-img img {
+    width: 100%; /* 親要素に合わせる */
+    height: auto; /* 固定の高さを設定 */
+    object-fit: cover; /* 画像をカバー */
+}
+
+.review-text {
+    position: absolute;
+    bottom: 10px; /* テキストを画像の下部に配置 */
+    top: 10%; /* 画像の上部からのオフセット */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #333;
+    font-size: 1.0rem;
+    width: 80%; /* テキストの幅を親要素に合わせる */
+    line-height: 1.5; /* 行間を調整 */
+    overflow: hidden; /* テキストがはみ出さないようにする */
+    word-break: break-word;
+}
+
+#review .h2-title {
+    color: #2F4F4F;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    background-image: url(../images/item_bg.png);
+    background-repeat: no-repeat;
+    background-position: center; /* 背景画像を中央に配置 */
+    background-size: contain; /* 背景画像を要素にフィットさせる */
+    padding: 20px; /* テキストと背景画像の間にパディングを追加 */
+    position: relative; /* 親要素に対する位置を相対的に設定 */
+    z-index: 1; /* 背景画像より上に表示するためにz-indexを設定 */
+}
+
+.review-carry {
+    display: block;
+    width: 80%; /* 親要素に合わせる */
+    height: 300px; /* 固定の高さを設定 */
+    object-fit: cover; /* 画像をカバー */
+}
+
+/* デフォルトで非表示にする */
+.review-side-image {
+    display: none;
+}
+
+.sp-review { display: none !important; }
+
+/* スワイパーのスタイル ---------------------------------------- */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    position: relative; /* 追加 */
+    z-index: 1; /* 追加 */
+    padding-bottom: 50px; /* ナビゲーションボタンのためのスペース */
+    overflow: hidden; /* 追加 */
+}
+
+#services .h2-title{
+    color: #2F4F4F;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    background-image: url(../images/item_bg.png);
+    background-repeat: no-repeat;
+    background-position: center; /* 背景画像を中央に配置 */
+    background-size: contain; /* 背景画像を要素にフィットさせる */
+    padding: 20px; /* テキストと背景画像の間にパディングを追加 */
+    position: relative; /* 親要素に対する位置を相対的に設定 */
+    z-index: 1; /* 背景画像より上に表示するためにz-indexを設定 */
+}
+
+.swiper-wrapper {
+    flex: 1 1 30%; /* 幅を30%に設定し、フレックスボックスで調整 */
+    max-width: 300px; /* 必要に応じて最大幅を設定 */
+    margin: 0; /* スライド間のスペース */
+}
+
+.slider-square {
+    /* display: block; */
+    /* margin: 0 auto; */
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    /* width: 450px;
+    height: 450px; */
+    object-fit: cover;
+    transition: transform 0.3s ease, z-index 0.3s ease; /* アニメーションの追加 */
+
+}
+
+.slider-square:hover {
+    transform: scale(1.2); /* ホバー時に1.2倍に拡大 */
+    z-index: 10; /* 最前面に表示 */
+    cursor: pointer; /* ホバー時に手の形になる */
+}
+
+/* 説明文のスタイル ---------------------------------------- */
+.description {
+    margin-top: 50px;
+    font-size: 16px;
+    color: #212529;
+    text-align: center;
+}
+
+/* テキストのスタイル ---------------------------------------- */
+.text-content {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+/* 詳細ページへのボタンスタイル */
+.button-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.jump-button {
+    background-color: #8B0000;
+    color: #fff;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.jump-button::after {
+    background: #2F4F4F;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+    z-index: -1;
+}  
+
+.jump-button:hover::after {
+    transform: scale(1, 1);
+  }
+   
+
+  /* map */
+.shop-img {
+    margin: 0 auto;
+    padding-bottom: 2rem;
+
+  }
+
+  .shop-img dd {
+    padding-top: 1rem;
+  } 
+
+/* 非常に大きなデバイス用 (最大幅 1280px) ---------------------------------------- */
+@media (max-width: 1280px) {
+
+    #about.history {
+        flex-direction: row;
+        margin: 1rem auto;
+        border-radius: 0;
+    }
+
+    .history-text {
+        width: 50%;
+        margin: 30px 0 0 110px;
+        flex-grow: 3;
+    }
+
+    .history-img {
+        width: 250%; /* 画像の幅を必要に応じて調整 */
+    }
+    
+
+    .history-en{
+        margin: 50px;
+        line-height: normal;
+    }
+
+    .review-text{
+        font-size: medium;
+    }
+
+    .swiper-container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .space{
+        margin-bottom: 2rem;
+    }
+
+}
+
+/* 大きなデバイス用 (最大幅 1024px) ---------------------------------------- */
+@media (max-width: 1024px) {
+
+    #about.history {
+        flex-direction: row;
+        margin: 0;
+    }
+
+    .history-text {
+        width: 60%;
+        margin-right: 5%;
+    }
+
+    .history-img{
+        width: 400%;
+    }
+
+    .swiper-container {
+        padding-top: 50px;
+        padding-bottom: 100px;
+    }
+
+    .swiper-slide {
+        width: calc((100% - 60px) / 3);
+        margin-right: 30px;
+    }
+
+    /* お客様の声 */
+    .review{
+        overflow: hidden;
+        margin: 3rem;
+    }
+    .review-outer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-outer h3 {
+        text-align: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .review-img-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2カラムに変更 */
+        gap: 10px; /* 画像間のスペースを調整 */
+        margin: 1rem; /* 全体のマージンを調整 */
+        justify-content: center; /* 水平方向の中央配置 */
+        max-width: 100%; /* 適宜調整 */
+    }
+
+    .review-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto; /* 自動調整に変更 */
+        width: 100%; /* 幅を100%に設定 */
+    }
+
+    .review-img img {
+        object-fit: cover; /* 画像のアスペクト比を維持しながら全体を表示 */
+        width: 100%; /* 親要素に合わせて幅を調整 */
+        height: auto; /* 高さを自動調整 */
+    }
+
+    .swiper.review-swiper-container {
+        display: none;
+    }
+
+    .review-carry{display: none !important;}
+    .sp-review{display: block !important;}
+}
+
+
+/* 中くらいのデバイス用 (最大幅 768px) ---------------------------------------- */
+@media (max-width: 768px) {
+
+    .history{
+        margin: 0;
+        padding: 0;
+    }
+    .history-outer {
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    .history-outer h2 {
+        display: inline-block;
+        width: 20%;
+        margin: 0 auto;
+    }
+
+        .title-img img{
+        width: 25%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .catch{
+        text-align: center;
+        margin-top: 2rem;
+        padding-bottom: 50px;
+    }
+
+    .history-text {
+        width: 90%;
+        padding: 0;
+        margin: 1rem auto;
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+
+    .sp_br {
+        display: block;/* キャッチコピー 768px未満で改行タグを有効に */
+      }
+
+    .history-en{
+        width: 100%;
+        font-size:18px;
+        line-height: normal;
+        margin: 10px 0; /* マージンを上下に調整 */
+        padding: 0 50px;
+        font-size: 2rem; /* フォントサイズを調整 */
+    }
+
+    .history-img {
+        width: 100%; /* 画像の幅を100%に調整 */
+        margin: 20px 0; /* 上下の余白を調整 */
+        text-align: center; /* 画像を中央揃え */
+    }
+
+    .history-img img {
+        display: none;
+    }
+
+    .review-outer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-img-container {
+        display: none; /* 既存のグリッドレイアウトを非表示に */
+    }
+
+    .swiper.review-swiper-container {
+        display: block;
+        width: 100%;
+        /* padding-top: 50px; */
+        padding-bottom: 50px;
+        opacity: 1; /* 透明度を100%に設定 */
+    }
+    .swiper.review-swiper-container .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1; /* 透明度を100%に設定 */
+        /* background-color: #fff; */
+    }
+
+    .review-swiper-container {
+        position: relative;
+    }
+
+    .review-side-image {
+        display: block;
+        position: absolute;
+        right: -200px; /* 必要に応じて調整 */
+        top: 70%;
+        transform: translateY(-50%);
+        width: 150px; /* 必要に応じて調整 */
+    }
+
+    .review-img {
+        width: 100%;
+        opacity: 1; /* 透明度を100%に設定 */
+        /* background-color: #fff; */
+    }
+
+    .review-img img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .review-text {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #333;
+        font-size: 1rem;
+        width: 80%;
+        line-height: 1.5;
+        /* word-break: break-all; */
+        z-index: 2; /* テキストを画像の上に表示 */
+    }
+
+    .review-outer h3 {
+        text-align: center;
+        width: 100%;
+    }
+
+    .swiper-wrapper {
+        z-index: 1; /* 追加: スライダーコンテナを前面に表示 */
+    }
+
+    .swiper.services-swiper-container .swiper-slide {
+    flex: 0 0 auto;
+    width: calc((100% - 60px) / 3); /* スライド間のスペースを考慮して幅を計算 */
+    margin-right: 30px;
+}
+
+.logo {
+    max-width: 100px;
+    text-align: left;
+} 
+
+
+    .review-carry { display: none !important; }
+    .sp-review { display: block !important; }
+
+    .hero-video { display: none !important; }
+    .sp-hero-video { display: block !important; }
+
+    .store-info-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #review .h2-title,#services .h2-title{
+        font-size: 22px;
+    }
+
+    .cyu-ou  dt{
+        width: 6rem;
+        margin: 0 auto;
+    }
+
+}
+
+/* 小さなデバイス用 (最大幅 565px) ---------------------------------------- */
+@media (max-width: 565px) {
+
+    body{
+        background-size: cover;
+    }
+
+    .catch p{
+        font-family: "Shippori Mincho", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size:1.3rem;
+    }
+
+    .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 1440px; /* 必要に応じてサイズを調整 */
+        overflow: hidden;
+    }
+    
+        #hero-video {
+            width: 100%;
+            height: 100%;
+        }
+
+    .history {
+        flex-direction: column;
+        padding: 0.7rem;
+    }
+
+    .history-text {
+        width: 90%;
+        padding: 0;
+        margin: 2rem auto;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    .history-en{
+        width: 90%;
+        line-height:1.7;
+        margin: 0 auto; /* マージンを上下に調整 */
+        font-size: 1.5rem; /* フォントサイズを調整 */
+        padding: 0;
+        font-size: 16px;
+    }
+
+    .swiper-container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .review-img-container {
+        grid-template-columns: 1fr; /* 画面幅が350px以下の場合は1カラム */
+    }
+
+    .review-img {
+        height: auto; /* 高さを調整 */
+    }
+
+    .review-carry { display: none !important; }
+    .sp-review { display: block !important; }
+
+    .hero-video { display: none !important; }
+    .sp-hero-video { display: block !important; }
+
+}
+
+/* 小さなデバイス用 (最大幅 370px) ---------------------------------------- */
+@media (max-width: 370px) {
+
+    body{
+        background-size: cover;
+    }
+
+    .intro-video{
+        height: 100%; /* 高さを画面いっぱいに指定する。(
+        vhが効かない場合の対策) */
+        height: 100vh; /*  高さを画面いっぱいに指定する。*/
+        position: relative;  /* 横幅がウィンドウズサイズの縦幅よりもはみ出てしまう場合に、左にずらすために指定*/
+        width: 100%; /*  横幅もいっぱいに。*/
+    }
+
+    .catch p{
+        font-size: 0.5rem;
+    }
+
+    .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 1440px; /* 必要に応じてサイズを調整 */
+        overflow: hidden;
+    }
+    
+    #hero-video {
+            width: 100%;
+            height: auto;
+        }
+    #about {
+        flex-direction: column;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .history-outer{
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .history-en{
+        margin: 0 auto;
+        padding: 0.1rem;
+    }
+
+    .history-text {
+        width: 100%;
+        margin:0 auto;
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .review-swiper-container{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .swiper-wrapper{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .swiper-slide{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .review-img{
+        width: 80%;
+        width: 100%;
+        margin: 0 auto;
+        padding-right: 1rem;
+    }
+
+    .review-text{
+        font-size: 0.8rem;
+        margin: 0 auto;
+        padding-right: 1rem;
+    }
+
+    .swiper-container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .swiper-wrapper {
+        flex: 1 1 50%; /* 幅を30%に設定し、フレックスボックスで調整 */
+        max-width: 300px; /* 必要に応じて最大幅を設定 */
+        margin: 10px; /* スライド間のスペース */
+    }
+
+    .review-carry { display: none !important; }
+    .sp-review { display: block !important; }
+
+    .hero-video { display: none !important; }
+    .sp-hero-video { display: block !important; }
+}
+
+
+

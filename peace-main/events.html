@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>へいわのたね</title>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=RocknRoll+One&family=Slackside+One&family=Train+One&family=Tsukimi+Rounded&display=swap" rel="stylesheet">
+    
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><h1 class="style-h1">へいわのたね</h1></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="stories.html">ストーリー</a></li>
+                    <li><a href="tool.html">サポートツール</a></li>
+                    <li><a href="blog.html">ブログ</a></li>
+                    <li><a href="comu.html">コミュニティ</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="hero-background"></div>
+        <h3>イベントに参加する</h3>
+        <p>私たちが開催するイベントに参加して、平和と自己実現のための活動をサポートしましょう。以下のイベントリストから参加したいイベントを選び、詳細を確認してください。</p>
+        
+        <section class="event-list content-section">
+            <article class="event shadow">
+                <h4>平和ウォーク</h4>
+                <p><strong>日付:</strong> 2024年6月10日</p>
+                <p><strong>場所:</strong> 東京・代々木公園</p>
+                <p><strong>概要:</strong> 平和の象徴としてのウォークイベントです。参加者全員で平和のメッセージを広めましょう。</p>
+                <div class="event-button"><a href="#register" class="cta-button" data-event="平和ウォーク">登録する</a></div>
+            </article>
+            
+            <article class="event shadow">
+                <h4>自己実現ワークショップ</h4>
+                <p><strong>日付:</strong> 2024年7月15日</p>
+                <p><strong>場所:</strong> 大阪・梅田センター</p>
+                <p><strong>概要:</strong> 自己実現のための具体的なステップを学びます。実際の成功事例を基にしたワークショップです。</p>
+                <div class="event-button"><a href="#register" class="cta-button" data-event="自己実現ワークショップ">登録する</a></div>
+            </article>
+            
+            <article class="event shadow">
+                <h4>平和セミナー</h4>
+                <p><strong>日付:</strong> 2024年8月20日</p>
+                <p><strong>場所:</strong> 名古屋・市民会館</p>
+                <p><strong>概要:</strong> 専門家を招いての平和に関するセミナーです。最新の平和研究と実践について学びます。</p>
+                <div class="event-button"><a href="#register" class="cta-button" data-event="平和セミナー">登録する</a></div>
+            </article>
+        </section>
+        
+        <section id="register" class="registration-form content-section">
+            <h4>イベント登録フォーム</h4>
+            <p>以下のフォームに必要事項を記入して、イベントに登録してください。</p>
+            <form action="submit_registration.php" method="post">
+                <input type="hidden" id="event" name="event" value="">
+                
+                <label for="name">お名前</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">メッセージ</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit" class="btn">登録する</button>
+            </form>
+        </section>
+    </main>
+
+</body>  
+    <footer>
+        <div class="container">
+            <small>&copy; 2024 平和の種 All rights reserved.</small>
+        </div>
+    </footer>
+
+
+</html>

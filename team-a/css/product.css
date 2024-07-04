@@ -1,0 +1,386 @@
+@charset "utf-8";
+
+
+
+
+.header-flex ,footer {
+    width: 100%;
+}
+
+header.fade-in {
+    background-color: #2F4F4F; /* フェードイン時の背景色 */
+    opacity: 1; /* フェードイン時の不透明度 */
+    top: 0; /* 最終位置 */
+    animation: fadeIn 1.5s ease-in-out forwards; /* 1.5秒でアニメーション */
+}
+
+.galleries {
+    width: 90%;
+    margin: 100px auto;
+    background-image: url(../product-images/bg_texture_light.jpg);
+    background-color: rgba(255,255,255,0.6);
+    background-blend-mode: lighten;
+    font-size: 16px;
+    padding: 0 ;
+    max-width: 1440px;
+}
+
+.gallery {
+    margin-bottom: 100px;
+}
+
+.image-and-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.large-image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url(../product-images/bg_texture_green.jpg); /* 画像が読み込まれるまでの背景色を追加 */
+    flex: 3;
+    width: 100%;
+}
+
+.large-image {
+    max-width: 130%; /* 画像の幅を調整 */
+    max-height: 100%;
+    width: auto; /* 幅を自動調整 */
+    height: 100%; /* 高さを大きく設定 */
+    object-fit: cover; /* アスペクト比を維持 */
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.description-container {
+    flex: 2;
+ /* 画像との間隔を調整 */
+    text-align: center;
+    margin: 0 20px 0 20px;
+}
+
+.title-description {
+    text-align: left;
+}
+
+.image-title {
+    /* position: absolute; */
+    /* top: -20px; */
+    /* left: 20px; */
+    color: #333;
+    background-image:url(../images/item_bg.png);
+    background-repeat: no-repeat;
+    background-size: 8rem;
+    background-position: center left;
+    /* padding: 10px; */
+    /* border-radius: 5px; */
+    padding: 2rem 0;
+    font-size: 24px;
+    margin-left: 2rem;
+}
+
+.image-description {
+    max-width: 80%; /* 説明文の幅を調整 */
+    margin: 20px auto; /* 中央揃え */
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5%;
+}
+
+.thumbnail-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.thumbnail {
+    width: 100px; /* 固定の幅 */
+    height: 100px; /* 固定の高さ */
+    object-fit: cover; /* アスペクト比を維持 */
+    margin: 0 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+    border: 2px solid #333; /* Optional: ホバー時にボーダーを追加 */
+}
+
+/* スライダーボタンのスタイル */
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    /* transition: background-color 0.3s; */
+}
+
+.slider-button.prev {
+    left: 10px;
+    background: #f0f0f0;
+}
+
+.slider-button.next {
+    right: 10px;
+    background: #f0f0f0;
+}
+
+/* 商品名 */
+.text-bold {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* カープコラボ */
+.pdf-bag {
+    text-decoration: none;
+}
+
+.pdf-bag-p {
+    border-radius: 2rem;
+    background-color: #9b1d1f;
+    font-size: 1.2rem;
+    margin: 2rem auto;
+    color: #fff;
+    padding: 0.5rem 0;
+    width: 70%;
+}
+
+.pdf-bag-p:hover { 
+    transition: .3s; /* 変化時間 0.3秒 */
+    background-color: #e70b0f; /* 背景色 */
+    transform: translateY(-5px); /* 上に上がる */
+  }
+.pdf-bag {
+    color: #fff;
+}
+
+.pdf-bag-p a {
+    color: #fff;
+}
+
+#contact .shop-title {
+    font-size: 24px;
+    background-size: 8rem;
+}
+
+
+/* 非常に大きなデバイス用 (最大幅 1280px) */
+@media (max-width: 1280px) {
+
+
+    .gallery {
+        width: 100%;
+        margin: 50px auto;
+        padding-bottom: 50px;
+    }
+
+    .thumbnail {
+        width: 100px;
+    }
+
+    .slider-button {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+/* 大きなデバイス用 (最大幅 1024px) */
+@media (max-width: 1024px) {
+
+
+    .gallery {
+        
+        margin: 40px auto;
+        padding-bottom: 40px;
+    }
+
+    .large-image-container {
+        flex:3;
+        height: auto;
+    }
+    .description-container {
+        flex:2;
+    }
+
+    .large-image {
+        width: 100%;
+    }
+
+    .thumbnail {
+        width: 95px;
+    }
+
+    .slider-button {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .pdf-bag-p {
+        border-radius: 2rem;
+        background-color: #9b1d1f;
+        font-size: 1.2rem;
+        margin: 2rem auto;
+        padding: 0.5rem 0;
+        width: 80%;
+    }
+}
+
+/* 中くらいのデバイス用 (最大幅 768px) */
+@media (max-width: 768px) {
+
+    .title-img { display: none !important; }
+    .sp { display: block !important; }
+
+    .gallery {
+        width: 90%;
+        margin: 30px auto;
+        padding-bottom: 30px;
+    }
+
+    .large-image-container {
+        width: 50%;;
+    }
+
+    .image-title {
+        background-size: 20%;
+    }
+
+    .thumbnail {
+        width: 90px;
+    }
+
+    .slider-button {
+        padding: 9px;
+        font-size: 15px;
+    }
+
+/* スライダーボタンのスタイル */
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.slider-button.prev {
+    left: -10px;
+    background: #f0f0f0;
+}
+
+.slider-button.next {
+    right: -10px;
+    background: #f0f0f0;
+}
+
+/* カープコラボ */
+.pdf-bag-p {
+
+    font-size: 1rem;
+    margin: 2rem auto;
+    padding: 0.5rem 0;
+    width: 90%;
+}
+
+}
+
+/* 小さなデバイス用 (最大幅 640px) */
+@media (max-width: 640px) {
+
+    .gallery {
+        padding-bottom: 20px;
+    }
+
+    .image-title {
+        text-align: center;
+        padding: 1rem 0;
+        font-size: 20px;
+            background-repeat: no-repeat;
+            background-size: 25%;
+            background-position: center ;
+            padding: 1rem 0;
+            font-size: 24px;
+            margin: 0;
+    }
+
+    .image-and-description {
+        flex-direction: column;
+    }
+
+    .large-image-container {
+        width: 80%;;
+        margin: 0 auto;
+    }
+
+    .description-container {
+        margin: 1rem;
+    }
+
+    .title-description {
+        font-size: 14px;
+        margin: 1rem ;
+    }
+
+    .thumbnail-container {
+        display: none;
+    }
+
+    .thumbnail {
+        width: 80px;
+    }
+
+    .slider-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+    .thumbnail-row {
+        display: none;
+    }
+
+    .map-content {
+        flex-direction: column;
+        padding-bottom: 100px;
+    }
+
+    .map-layout {
+        margin: 0 auto;
+    }
+
+
+
+    .pdf-bag-p {
+
+        font-size: 1rem;
+        margin: 2rem auto;
+        padding: 0.6rem;
+        width:80%;
+    }
+
+    .description-container {
+        margin: 0 auto;
+    }
+
+
+
+}

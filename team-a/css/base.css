@@ -1,0 +1,597 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    /* font-optical-sizing: auto; */
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    background-image: url('../images/flame.png');
+    background-size: contain;
+    overflow-x: hidden; /* 横スクロールを非表示にする */
+}
+
+/* ヘッダー・フッター・ナビゲーション ---------------------------------------- */
+header {
+    display: flex;
+    align-items: center; /* 縦方向の中央配置 */
+    justify-content: space-between; /* 左右の配置を調整 */
+    height: 11%; /* 必要に応じて調整 */
+    padding: 0 20px; /* 必要に応じて調整 */
+    background-color: transparent; /* 初期状態で無色透明 */
+    color: #fff;
+    width: 100%;
+    position: fixed;
+    top: -100px; /* 初期状態で画面の上に隠す */
+    z-index: 1001; /* #introの上に表示されるように */
+    transition: background-color 0.3s ease, top 1.5s ease-in-out, opacity 1.5s ease-in-out; /* 1.5秒でアニメーション */
+    opacity: 0; /* 初期状態で透明 */
+}
+
+header.scrolled {
+    background-color: rgba(47, 79, 79, 0.9); /* お好みの背景色に設定 */
+}
+
+.logo {
+    max-width: 200px;
+    text-align: left;
+    margin-left: 1rem;
+} 
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5rem;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: transform 0.3s ease, font-size 0.3s ease; /* アニメーションの追加 */
+}
+
+nav ul li a:hover {
+    transform: scale(1.1); /* ホバー時に1.1倍に拡大 */
+    font-size: 1.1em; /* ホバー時にフォントサイズを拡大 */
+}
+
+/* footer */
+
+footer {
+    text-align: center;
+    color: #fff;
+    padding:0;
+}
+
+/* ハンバーガーメニューのスタイル ---------------------------------------- */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed;/* 変更: 固定表示にする */
+    right: 20px;
+    top: 20px;
+    z-index: 1100;/* 背景より上に配置 */
+    background: none;
+    border: none;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: #fff;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* トップへ戻るボタン ---------------------------------------- */
+#scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#scroll-to-top img{
+    width: 130px;
+    height: 130px;
+}
+
+/* スクロール後に表示するクラス */
+#scroll-to-top.show {
+    display: block;
+    opacity: 1;
+    animation: float 3s infinite; /* ふわふわアニメーションを適用 */
+}
+
+/* ふわふわアニメーション */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* footer */
+#contact .h2-title{
+    color: #2F4F4F;
+    font-size: 2rem;
+    margin: 14px 0;
+    text-align: center;
+    background-image: url(../images/item_bg.png);
+    background-repeat: no-repeat;
+    background-position: center; /* 背景画像を中央に配置 */
+    background-size: contain; /* 背景画像を要素にフィットさせる */
+    padding: 20px; /* テキストと背景画像の間にパディングを追加 */
+    position: relative; /* 親要素に対する位置を相対的に設定 */
+    z-index: 1; /* 背景画像より上に表示するためにz-indexを設定 */
+}
+
+.google-map-button {
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
+.google-map-button:hover {
+    background-color: #f0f0f0;
+}
+
+.map-text{
+    text-align: center;
+    padding-top: 2rem;
+}
+
+#contact {
+    color: #2F4F4F;
+    padding-top: 50px;
+}
+.map {
+    padding: 0;
+}
+
+/* index */
+.shop-img {
+    width: 70%;
+}
+
+.map-content-flex {
+    display: flex;
+    padding: 0 5%;
+    margin: 0 auto;
+}
+
+.map-layout {
+    flex: 1;
+    margin-bottom: 10rem ;
+    padding-left: 3rem;
+}
+
+.map-layout img {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+}
+
+caption {
+    font-size: 1.5rem;
+    text-align: left;
+    padding-left: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.shop-info-table {
+    flex: 1;
+    border-collapse: collapse;
+    margin-bottom: 4rem;
+}
+
+.doted{
+    list-style: inside;
+}
+
+.shop-info-table tr {
+    border-bottom: 1px dotted grey;
+    text-align: left;
+    width: 70%;
+}
+
+.shop-info-table th {
+    font-size: 1.2rem;
+    width: 30%;
+    padding: 0.8rem;
+}
+
+.shop-info-table td {
+    width: 75%;
+    padding-left: 1rem;
+}
+
+.shop-info-table tr:last-child {
+    border-bottom: none;
+}
+
+.shop-info-table td:last-child {
+    padding-left: 0;
+}
+
+.shop-info-title {
+    color: #333;
+    background-image:url(../images/item_bg.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position: center ;
+    padding: 2rem 0;
+    font-size: 24px;
+}
+
+.info-brand-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 3rem;
+    padding: 0 4rem 10rem 4rem ;
+}
+
+.brand-img {
+    width: 50%;
+}
+
+.cyu-ou-rogo {
+    width: 50%;
+}
+
+.cyu-ou-tex {
+    font-size: 1.5rem;
+}
+
+.cyu-ou {
+    padding: 1rem;
+}
+
+.copy {
+    background-color: #2F4F4F;
+    padding: 2rem;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.dotted {
+    padding-left: 1rem;
+}
+
+/* 非常に大きなデバイス用 (最大幅 1280px) ---------------------------------------- */
+@media (max-width: 1280px) {
+
+    .shop-img {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .map-content-flex {
+        margin-top: 4rem;
+    }
+
+    .map-layout {
+       width: 100%;
+       margin: 0 auto;
+    }
+
+}
+
+
+/* 大きなデバイス用 (最大幅 1024px) ---------------------------------------- */
+@media (max-width: 1024px) {
+
+    .map-content-flex {
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .map-layout  {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0 0 3rem 0 ;
+    }
+
+    .shop-info-table {
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 2rem;
+    }
+
+    .map-layout {
+        padding: 0;
+    }
+
+    .cyu-ou {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .cyu-ou-tex {
+        font-size: 1rem;
+    }
+
+}
+
+/* 769px以上の場合にはハンバーガーメニューが非表示 ---------------------------------------- */
+@media (min-width: 769px) {
+
+    /* ハンバーガーメニュー */
+    .menu-toggle {
+        display: none; /* ハンバーガーメニューを非表示 */
+    }
+    
+    nav ul {
+        display: flex; /* デフォルトで表示 */
+        justify-content: flex-end;
+        padding-right: 5rem;
+    }
+
+}
+
+
+/* 中くらいのデバイス用 (最大幅 768px) ---------------------------------------- */
+@media (max-width: 768px) {
+    section {
+        overflow: hidden; /* これがないとヘッダーが短くなる */
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        opacity: 1; /* 初期状態で透明を解除 */
+        background-color: transparent;
+    }
+
+    header.fade-in {
+        position: fixed;
+        top: 0;
+        background-color: #2F4F4F; /* 背景色を固定 */
+    }
+
+    header.intro-active {
+        position: absolute;
+        top: -100px;
+        background-color: transparent;
+    }
+
+    h1{
+        width: 100px;
+    }
+
+    .title-img img{
+        width: 45%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+/* ハンバーガーメニュー */
+.menu-toggle {
+    display: flex; /* ハンバーガーメニューを表示 */
+}
+
+nav ul {
+    display: none; /* デフォルトで非表示 */
+    flex-direction: column;
+    width: 100%;
+    background: rgba(47, 79, 79, 0.8); /* 背景色を半透明に設定 */
+    position: fixed; /* 画面の始まりから表示されるように固定 */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: 30px; /* ヘッダーの高さに合わせてパディングを設定 */
+    padding-right: 0;
+    align-items: center; /* 追加: メニュー項目を中央に配置 */
+    text-align: center; /* 追加: メニュー項目の文字を中央に配置 */
+}
+
+nav.active ul {
+    display: flex; /* メニューがアクティブな場合に表示 */
+    
+}
+
+nav ul li {
+    width: 100%; /* メニュー項目を幅100%に設定 */
+}
+
+nav ul li a {
+    width: 100%; /* リンクを幅100%に設定 */
+    padding: 15px 0; /* 上下のパディングを調整 */
+    display: block;
+    text-align: center; /* リンクの文字を中央に配置 */
+}
+
+/* トップへ戻るボタンを非表示 */
+#scroll-to-top {
+    display: none !important; /* 強制的に非表示 */
+}
+
+.info-brand-flex {
+    flex-direction: column;
+    margin: 2rem auto;
+    margin-top: 0;
+}
+
+.brand-img {
+    margin: 0 auto;
+}
+
+.cyu-ou-rogo {
+    width: 40%;
+    margin: 2rem auto;
+}
+
+.cyu-ou-tex {
+    font-size: 1rem;
+    padding-top: 0.5rem;
+
+}
+
+.shop-info-table {
+    margin: 2rem auto;
+    width: 100%;
+    font-size: 1rem;
+
+}
+
+.map-content {
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+
+.map-layout {
+    margin: 0 auto;
+}
+
+.map-text {
+
+    padding: 0;
+}
+
+.pdf-bag-p {
+    font-size: 1rem;
+    margin: 1rem auto;
+    width: 100%;
+}
+
+.description-container {
+    margin: 0 auto;
+}
+
+#contact .h2-title{
+    color: #2F4F4F;
+    font-size: 22px;
+}
+
+.map-text {
+    margin-top: 2rem;
+}
+
+
+}
+
+
+/* 小さなデバイス用 (最大幅 565px) ---------------------------------------- */
+@media (max-width: 565px) {
+    header {
+        padding: 10px;
+    }
+    .info-brand-flex {
+        flex-direction: column;
+    }
+
+    .brand-img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .cyu-ou-rogo {
+        width: 60%;
+        margin: 2rem auto;
+    }
+
+    .cyu-ou  dt{
+        width: 6rem;
+        margin: 0 auto;
+    }
+    
+    .cyu-ou-tex {
+    
+        font-size: 1rem;
+        text-align: center;
+    
+    }
+
+    .map-layout {
+        width: 90%;
+    }
+
+    .map-text {
+        margin-top: 2rem;
+    }
+
+    header{
+        height: 12%;
+        background-color: transparent; /* 初期状態で無色透明 */
+    }
+
+}
+
+
+/* 小さなデバイス用 (最大幅 370px) ---------------------------------------- */
+@media (max-width: 370px) {
+    header{
+        padding: 10px;
+    }
+
+    header{
+        height: 12%;
+        background-color: transparent; /* 初期状態で無色透明 */
+    }
+
+    #contact .h2-title{
+        color: #2F4F4F;
+        font-size: 16px;
+    }
+
+}
