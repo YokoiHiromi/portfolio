@@ -170,6 +170,10 @@ nav ul li a:hover::after {
     justify-content: space-between;
     flex-wrap: wrap;
     text-align: center;
+    background-image: url(images/23189126.png);
+    background-size: 65%;
+    background-position: left;
+    background-repeat: no-repeat;
 }
 
 .profile-photo {
@@ -416,4 +420,3 @@ footer a:hover {
         margin-right: 1rem;
     }
 }
-
