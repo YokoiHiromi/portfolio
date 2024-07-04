@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -157,6 +159,11 @@ nav ul li a:hover::after {
     margin: 0 auto;
     height: auto;
     background: #f67690;
+    background-image: url(/images/25018368.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 .about {
@@ -170,10 +177,6 @@ nav ul li a:hover::after {
     justify-content: space-between;
     flex-wrap: wrap;
     text-align: center;
-    background-image: url(../images/23189126.png);
-    background-size: 65%;
-    background-position: left;
-    background-repeat: no-repeat;
 }
 
 .profile-photo {
@@ -268,7 +271,7 @@ nav ul li a:hover::after {
 .flex {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin: 0 5rem 1rem 5rem;
 }
 
 .margin {
@@ -280,9 +283,11 @@ nav ul li a:hover::after {
 }
 
 #Skill {
-    width: 80%;
-    margin: 0 auto;
+    width: 95%;
+    margin: 2rem auto;
     padding: 2rem 0;
+    background: linear-gradient(to bottom, #b3e5fc, #f8bbd0); /* 上から下への淡いピンクから淡いブルーへのグラデーション */
+    color: #000; /* テキストの色を黒に設定 */
 }
 
 #Skill p {
@@ -292,17 +297,14 @@ nav ul li a:hover::after {
 
 .center {
     margin: 0 auto;
-    /* width: 400px; */
-    position: relative;
-    padding: 5px 5px 5px 42px;
-    background: #f67690;
-    font-size: 20px;
-    color: white;
+    padding: 1rem 1rem 1rem 2rem;
+    background: rgba(246, 118, 144, 0.8); /* 背景色の透明度を追加 */
+    font-size: 20px; /* フォントサイズを調整 */
+    color: #000; /* テキストの色を黒に設定 */
     text-align: center;
     line-height: 1.3;
-    z-index:-1;
 }
-  
+
 .center:before {
     position: absolute;
     content: '';
@@ -311,7 +313,6 @@ nav ul li a:hover::after {
     border: none;
     border-left: solid 40px white;
     border-bottom: solid 79px transparent;
-    z-index:-2
 }
 
 h3 {
@@ -346,13 +347,19 @@ h3:after {
     background: #000;
 }
 
+.kyouzai{
+    padding-left: 4rem;
+}
+
 h4 {
-    position: relative;
-    margin-top: 20px;
+    width: 300px; /* 幅を300pxに設定 */
+    margin: 20px auto; /* 上下のマージンを20px、左右のマージンを自動に設定して中央配置 */
     padding: 1.5rem 2rem;
     border-bottom: 3px solid #000;
     border-left: 3px solid #000;
     border-radius: 0 0 0 20px;
+    position: relative;
+    text-align: center; /* テキストを中央揃え */
 }
 
 h4:before {
@@ -379,6 +386,8 @@ h4:after {
     border-color: #f67690 transparent transparent transparent;
 }
 
+
+
 footer {
     text-align: center;
     padding: 1rem 0;
@@ -397,6 +406,12 @@ footer a:hover {
     text-decoration: underline;
 }
 
+@media (min-width: 1200px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .about-content {
         flex-direction: column;
@@ -405,10 +420,12 @@ footer a:hover {
 
     .profile-photo {
         margin: 0 auto 2rem;
+        width: 80%; /* 画像の幅を調整 */
     }
 
     .about-text {
         max-width: 100%;
+        margin: 0 auto; /* テキストの左右マージンを自動に設定して中央配置 */
     }
 
     header h1 {
@@ -418,5 +435,19 @@ footer a:hover {
     nav ul li a {
         font-size: 0.875rem;
         margin-right: 1rem;
+    }
+
+    .mv-bg video {
+        width: 100%;
+        height: auto; /* 高さを自動に設定 */
+        object-fit: cover;
+    }
+
+    .strong-p {
+        font-size: 2rem; /* フォントサイズを調整 */
+    }
+
+    .p {
+        font-size: 1rem; /* フォントサイズを調整 */
     }
 }
